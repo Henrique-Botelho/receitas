@@ -1,5 +1,7 @@
 import React from "react";
 import { View, Text } from "react-native";
+import YoutubeIframe from "react-native-youtube-iframe";
+import * as ScreenOrientation from 'expo-screen-orientation';
 
 export default function Receita({route}) {
     return(
@@ -11,7 +13,20 @@ export default function Receita({route}) {
             <Text>Rendimento: {route.params.rendimento}</Text>
             <Text>Ingredientes: {route.params.ingredientes}</Text>
             <Text>Modo de Preparo: {route.params.modo_preparo}</Text>
-            <Text>Video: {route.params.video}</Text>
+
+            <View>
+                <YoutubeIframe
+                    videoId={route.params.video}
+                    height={300}
+                    onFullScreenChange={(isFullScreen) => {
+                        if (isFullScreen) {
+                            ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE);
+                        } else {
+                            ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT);
+                        }
+                    }}
+                />
+            </View>
         </View>
     );
 }
