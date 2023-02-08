@@ -1,9 +1,12 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, FlatList } from "react-native";
 import YoutubeIframe from "react-native-youtube-iframe";
 import * as ScreenOrientation from 'expo-screen-orientation';
 
 export default function Receita({route}) {
+
+    const words = route.params.ingredientes.split(',');
+
     return(
         <View style={styles.container}>
             <View style={styles.titulo}>
@@ -27,28 +30,35 @@ export default function Receita({route}) {
             <View style={styles.textos}>
                 <View style={styles.texto1}>
                     <View style={styles.texto1_1}>
-                        <Text>Tempo de Preparo</Text>
-                        <Text>{route.params.tempo_preparo}</Text>
+                        <Text style={styles.text}>Tempo de Preparo</Text>
+                        <Text style={styles.text}>{route.params.tempo_preparo}</Text>
                     </View>
                     <View style={styles.texto1_1}>
-                        <Text>Rendimento</Text>
-                        <Text>{route.params.rendimento}</Text>
+                        <Text style={styles.text}>Rendimento</Text>
+                        <Text style={styles.text}>{route.params.rendimento}</Text>
                     </View>
                 </View>
                 <View style={styles.texto2}>
-                    <Text>Ingredientes</Text>
+                    <Text style={styles.tit}>Ingredientes</Text>
                 </View>
                 <View style={styles.texto3}>
-                    <Text>{route.params.ingredientes}</Text>
+                    <FlatList 
+                        data={words}
+                        renderItem={(item, index) => {
+                            return(
+                                <Text style={styles.text}>{item}</Text>
+                            )
+                        }}
+                    />
                 </View>
                 <View style={styles.texto4}>
-                    <Text>Modo de Preparo</Text>
+                    <Text style={styles.tit}>Modo de Preparo</Text>
                 </View>
                 <View style={styles.texto5}>
-                    <Text>{route.params.modo_preparo}</Text>
+                    <Text style={styles.text}>{route.params.modo_preparo}</Text>
                 </View>
                 <View style={styles.texto6}>
-                    <Text>Autor: {route.params.autor}</Text>
+                    <Text style={styles.text}>Autor: {route.params.autor}</Text>
                 </View>
             </View>
         </View>
@@ -59,13 +69,10 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: "space-around",
-        alignItems: "center",
-        borderWidth: 7
+        alignItems: "center"
     },
     titulo:{
         backgroundColor: "#E9B440",
-        borderColor: "red",
-        borderWidth: 7,
         borderRadius: 15,
         width: "80%",
         justifyContent: "center",
@@ -76,8 +83,6 @@ const styles = StyleSheet.create({
         fontSize: 30
     },
     video: {
-        borderWidth: 7,
-        borderColor: "green",
         width: "95%",
         borderRadius: 12,
         height: 215,
@@ -85,41 +90,41 @@ const styles = StyleSheet.create({
         backgroundColor: "#E9B440"
     },
     textos: {
-        borderWidth: 7,
-        borderColor: "purple",
         borderRadius: 15,
         backgroundColor: "#E9B440",
-        width: "95%"
+        width: "95%",
+        flex: 0.8,
+        padding: 10,
+        justifyContent: "space-around"
+    },
+    tit: {
+        color: "#FFF",
+        fontSize: 25,
+        borderBottomWidth: 3,
+        borderBottomColor: "black",
+        backgroundColor: "gray"
     },
     texto1: {
-        borderWidth: 7,
-        borderColor: "yellow",
         flexDirection: "row",
         justifyContent: "space-around",
-        alignItems: "center"
-    },
-    texto1_1: {
-        borderWidth: 7,
-        borderColor: "brown",
+        alignItems: "center",
+        borderBottomWidth: 3,
+        borderBottomColor: "black"
     },
     texto2: {
-        borderWidth: 7,
-        borderColor: "aquamarine",
+        justifyContent: "center",
+        alignItems: "center"
     },
     texto3: {
-        borderWidth: 7,
-        borderColor: "gray",
+        justifyContent: "center",
+        alignItems: "center"
     },
     texto4: {
-        borderWidth: 7,
-        borderColor: "orange",
+        justifyContent: "center",
+        alignItems: "center"
     },
-    texto5: {
-        borderWidth: 7,
-        borderColor: "blue",
-    },
-    texto6: {
-        borderWidth: 7,
-        borderColor: "violet",
+    text: {
+        color: "#FFF",
+        fontSize: 20
     }
 });
