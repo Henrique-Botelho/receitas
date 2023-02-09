@@ -1,5 +1,6 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
+import { View, Image, Text } from "react-native";
 
 const Stack = createStackNavigator();
 
@@ -8,50 +9,52 @@ import Home from "./screens/Home";
 import Categoria from "./screens/Categoria";
 import Receita from "./screens/Receita";
 
+import Header from "./components/Header";
+
 export default function Routes() {
     return(
         <Stack.Navigator initialRouteName="Home">
             <Stack.Screen 
                 name="Home" 
+                component={Home}
                 options={{
-                    title: "",
-                    cardStyle: {
-                        backgroundColor: "#FFEDED",
-                        flex: 1
-                    },
+                    headerRight: () => <Header />,
                     headerStyle: {
-                        backgroundColor: "#E9B440",
+                        backgroundColor: "#E9B440"
+                    },
+                    headerTitle: "",
+                    cardStyle: {
+                        backgroundColor: "#FFEDED"
                     }
-                }} 
-                component={Home} 
+                }}
             />
             <Stack.Screen 
                 name="Categoria"
+                component={Categoria}
                 options={{
-                    title: "",
-                    cardStyle: {
-                        backgroundColor: "#FFEDED",
-                        flex: 1
-                    },
+                    headerRight: () => <Header />,
                     headerStyle: {
-                        backgroundColor: "#E9B440",
+                        backgroundColor: "#E9B440"
+                    },
+                    headerTitle: "",
+                    cardStyle: {
+                        backgroundColor: "#FFEDED"
                     }
                 }}
-                component={Categoria}
             />
             <Stack.Screen 
                 name="Receita"
+                component={Receita}
                 options={{
-                    title: "",
-                    cardStyle: {
-                        backgroundColor: "#FFEDED",
-                        flex: 1
-                    },
+                    headerRight: () => <Header />,
                     headerStyle: {
-                        backgroundColor: "#E9B440",
+                        backgroundColor: "#E9B440"
+                    },
+                    headerTitle: "",
+                    cardStyle: {
+                        backgroundColor: "#FFEDED"
                     }
                 }}
-                component={Receita}
             />
         </Stack.Navigator>
     );
