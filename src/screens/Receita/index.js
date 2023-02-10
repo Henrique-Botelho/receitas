@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, FlatList, ScrollView } from "react-native";
 import YoutubeIframe from "react-native-youtube-iframe";
-import * as ScreenOrientation from 'expo-screen-orientation';
+// import * as ScreenOrientation from 'expo-screen-orientation';
 
 import { styles } from "./styles";
 
@@ -18,14 +18,13 @@ export default function Receita({route}) {
                 <YoutubeIframe
                     videoId={route.params.video}
                     height={300}
-                    onFullScreenChange={(isFullScreen) => {
-                        if (isFullScreen) {
-                            ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE);
-                        } else {
-                            ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT);
-                        }
-                    }}
-                    style
+                    // onFullScreenChange={(isFullScreen) => {
+                    //     if (isFullScreen) {
+                    //         ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE);
+                    //     } else {
+                    //         ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT);
+                    //     }
+                    // }}
                 />
             </View>
 
