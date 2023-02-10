@@ -13,7 +13,9 @@ export const styles = StyleSheet.create({
         borderRadius: 15,
         width: "80%",
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        borderWidth: 3,
+        borderColor: "#B87333"
     },
     textTitulo:{
         color: "#FFF",
@@ -26,7 +28,9 @@ export const styles = StyleSheet.create({
         borderRadius: 12,
         height: 215,
         padding: 10,
-        backgroundColor: "#E9B440"
+        backgroundColor: "#E9B440",
+        borderWidth: 3,
+        borderColor: "#B87333"
     },
     textos: {
         borderRadius: 15,
@@ -35,7 +39,9 @@ export const styles = StyleSheet.create({
         flex: 0.8,
         height: "100%",
         padding: 10,
-        justifyContent: "space-around"
+        justifyContent: "space-around",
+        borderWidth: 3,
+        borderColor: "#B87333"
     },
     tit: {
         color: "#000",
