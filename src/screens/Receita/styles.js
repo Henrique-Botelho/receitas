@@ -17,7 +17,9 @@ export const styles = StyleSheet.create({
     },
     textTitulo:{
         color: "#FFF",
-        fontSize: 30
+        fontSize: 30,
+        textAlign:"center",
+        fontWeight: "bold"
     },
     video: {
         width: "95%",
@@ -31,6 +33,7 @@ export const styles = StyleSheet.create({
         backgroundColor: "#E9B440",
         width: "95%",
         flex: 0.8,
+        height: "100%",
         padding: 10,
         justifyContent: "space-around"
     },
@@ -38,7 +41,8 @@ export const styles = StyleSheet.create({
         color: "#000",
         fontSize: 25,
         padding: 5,
-        borderRadius: 15
+        borderRadius: 15,
+        fontWeight: "bold"
     },
     texto1: {
         flexDirection: "row",
@@ -53,6 +57,7 @@ export const styles = StyleSheet.create({
     },
     text: {
         color: "#FFF",
-        fontSize: 20
+        fontSize: 15,
+        textAlign: "justify"
     }
 });

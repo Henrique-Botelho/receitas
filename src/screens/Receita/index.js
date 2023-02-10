@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, FlatList } from "react-native";
+import { View, Text, StyleSheet, FlatList, ScrollView } from "react-native";
 import YoutubeIframe from "react-native-youtube-iframe";
 import * as ScreenOrientation from 'expo-screen-orientation';
 
@@ -30,38 +30,40 @@ export default function Receita({route}) {
             </View>
 
             <View style={styles.textos}>
-                <View style={styles.texto1}>
-                    <View>
-                        <Text>Tempo de Preparo</Text>
-                        <Text>{route.params.tempo_preparo}</Text>
+                <ScrollView>
+                    <View style={styles.texto1}>
+                        <View>
+                            <Text>Tempo de Preparo</Text>
+                            <Text>{route.params.tempo_preparo}</Text>
+                        </View>
+                        <View>
+                            <Text>Rendimento</Text>
+                            <Text>{route.params.rendimento}</Text>
+                        </View>
+                    </View>
+                    <View style={styles.texto2}>
+                        <Text style={styles.tit}>Ingredientes</Text>
+                    </View>
+                    <View style={styles.texto2}>
+                        <FlatList
+                            data={words}
+                            renderItem={({item}) => {
+                                return(
+                                    <Text style={styles.text}>- {item}</Text>
+                                )
+                            }}
+                        />
+                    </View>
+                    <View style={styles.texto2}>
+                        <Text style={styles.tit}>Modo de Preparo</Text>
+                    </View>
+                    <View style={styles.texto2}>
+                        <Text style={styles.text}>  {route.params.modo_preparo}</Text>
                     </View>
                     <View>
-                        <Text>Rendimento</Text>
-                        <Text>{route.params.rendimento}</Text>
+                        <Text>Autor: {route.params.autor}</Text>
                     </View>
-                </View>
-                <View style={styles.texto2}>
-                    <Text style={styles.tit}>Ingredientes</Text>
-                </View>
-                <View style={styles.texto2}>
-                    <FlatList
-                        data={words}
-                        renderItem={({item}) => {
-                            return(
-                                <Text style={styles.text}>- {item}</Text>
-                            )
-                        }}
-                    />
-                </View>
-                <View style={styles.texto2}>
-                    <Text style={styles.tit}>Modo de Preparo</Text>
-                </View>
-                <View style={styles.texto2}>
-                    <Text style={styles.text}>{route.params.modo_preparo}</Text>
-                </View>
-                <View>
-                    <Text>Autor: {route.params.autor}</Text>
-                </View>
+                </ScrollView>
             </View>
         </View>
     );
