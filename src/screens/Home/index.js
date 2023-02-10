@@ -40,8 +40,8 @@ const styles = StyleSheet.create({
         backgroundColor: "#E9B440",
         tintColor: "#FFF",
         width: 160,
-        height: 77,
-        borderRadius: 15,
+        height: 160,
+        borderRadius: 100,
         justifyContent: "center",
         alignItems: "center",
         borderWidth: 3,
@@ -49,6 +49,7 @@ const styles = StyleSheet.create({
     },
     text: {
         color: "#FFF",
-        fontSize: 20
+        textAlign: "center",
+        fontSize: 25
     }
 });

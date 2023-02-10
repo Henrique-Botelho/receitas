@@ -33,12 +33,12 @@ export default function Receita({route}) {
                 <ScrollView>
                     <View style={styles.texto1}>
                         <View>
-                            <Text>Tempo de Preparo</Text>
-                            <Text>{route.params.tempo_preparo}</Text>
+                            <Text style={styles.det}>Tempo de Preparo</Text>
+                            <Text style={styles.det2}>{route.params.tempo_preparo}</Text>
                         </View>
                         <View>
-                            <Text>Rendimento</Text>
-                            <Text>{route.params.rendimento}</Text>
+                            <Text style={styles.det}>Rendimento</Text>
+                            <Text style={styles.det2}>{route.params.rendimento}</Text>
                         </View>
                     </View>
                     <View style={styles.texto2}>
@@ -61,7 +61,7 @@ export default function Receita({route}) {
                         <Text style={styles.text}>  {route.params.modo_preparo}</Text>
                     </View>
                     <View>
-                        <Text>Autor: {route.params.autor}</Text>
+                        <Text style={styles.det}>Autor: {route.params.autor}</Text>
                     </View>
                 </ScrollView>
             </View>

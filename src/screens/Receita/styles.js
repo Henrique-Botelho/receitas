@@ -44,7 +44,7 @@ export const styles = StyleSheet.create({
         borderColor: "#B87333"
     },
     tit: {
-        color: "#000",
+        color: "#B87333",
         fontSize: 25,
         padding: 5,
         borderRadius: 15,
@@ -55,7 +55,7 @@ export const styles = StyleSheet.create({
         justifyContent: "space-around",
         alignItems: "center",
         borderBottomWidth: 1,
-        borderBottomColor: "black"
+        borderBottomColor: "#B87333"
     },
     texto2: {
         justifyContent: "center",
@@ -65,5 +65,11 @@ export const styles = StyleSheet.create({
         color: "#FFF",
         fontSize: 15,
         textAlign: "justify"
+    },
+    det: {
+        color: "#B87333",
+    },
+    det2: {
+        color: "#FFF",
     }
 });

@@ -6,6 +6,16 @@ export default function Categoria({route, navigation}) {
     const [dados, setDados] = useState();
     const [loading, setLoading] = useState(true);
 
+    if (route.params.nome == "entrada") {
+        var tit = "Entradas"
+    } else if (route.params.nome == "prato-principal") {
+        var tit = "Pratos Principais"
+    } else if (route.params.nome == "sobremesa") {
+        var tit = "Sobremesas"
+    } else if (route.params.nome == "sopa") {
+        var tit = "Sopas"
+    }
+
     useEffect(() => {
         const pegaDados = async () => {
             await fetch(`https://receitas3dm.up.railway.app/receitas/${route.params.nome}?key=4WAPlNmInAy2ZTkIAMy9`)
@@ -30,6 +40,9 @@ export default function Categoria({route, navigation}) {
     } else {
         return(
             <View style={styles.container}>
+                <View style={styles.titulo}>
+                    <Text style={styles.textTitulo}>{tit}</Text>
+                </View>
                 <FlatList
                     data={dados}
                     renderItem={({item,index}) => {
@@ -53,6 +66,22 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
+        marginTop: 30
+    },
+    titulo:{
+        backgroundColor: "#E9B440",
+        width: "100%",
+        height: 80,
+        justifyContent: "center",
+        alignItems: "center",
+        borderWidth: 3,
+        borderColor: "#B87333"
+    },
+    textTitulo:{
+        color: "#FFF",
+        fontSize: 30,
+        textAlign:"center",
+        fontWeight: "bold"
     },
     flatlist: {
         width: "100%"
@@ -64,7 +93,7 @@ const styles = StyleSheet.create({
     },
     btn: {
         backgroundColor: "#E9B440",
-        width: "80%",
+        width: "70%",
         borderRadius: 15,
         height: 55,
         justifyContent: "center",
