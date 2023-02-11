@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
         borderColor: "#B87333"
     },
     textTitulo:{
-        color: "#FFF",
+        color: "brown",
         fontSize: 30,
         textAlign:"center",
         fontWeight: "bold"
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
         borderColor: "#B87333"
     },
     text: {
-        color: "#FFF",
+        color: "brown",
         fontSize: 20,
         textAlign:"center"
     }

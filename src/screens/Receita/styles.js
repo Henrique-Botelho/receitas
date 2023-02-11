@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
         borderColor: "#B87333"
     },
     textTitulo:{
-        color: "#FFF",
+        color: "brown",
         fontSize: 30,
         textAlign:"center",
         fontWeight: "bold"
@@ -62,14 +62,17 @@ export const styles = StyleSheet.create({
         alignItems: "center"
     },
     text: {
-        color: "#FFF",
+        color: "brown",
         fontSize: 15,
         textAlign: "justify"
     },
     det: {
         color: "#B87333",
+        fontWeight: "bold",
+        textAlign: "center"
     },
     det2: {
-        color: "#FFF",
+        color: "brown",
+        textAlign: "center"
     }
 });

@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
         borderColor: "#B87333"
     },
     text: {
-        color: "#FFF",
+        color: "brown",
         textAlign: "center",
         fontSize: 25
     }
