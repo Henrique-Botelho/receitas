@@ -1,13 +1,17 @@
-import React from "react";
-import { View, Text, StyleSheet, FlatList, ScrollView } from "react-native";
+import React, { useState } from "react";
+import { View, Text, StyleSheet, FlatList, ScrollView, ActivityIndicator } from "react-native";
 import YoutubeIframe from "react-native-youtube-iframe";
-// import * as ScreenOrientation from 'expo-screen-orientation';
 
 import { styles } from "./styles";
 
 export default function Receita({route}) {
 
     const words = route.params.ingredientes.split(', ');
+    const [videoReady, setVideoReady] = useState();
+
+    function carregado() {
+        setVideoReady(true);
+    }
 
     return(
         <View style={styles.container}>
@@ -15,16 +19,11 @@ export default function Receita({route}) {
                 <Text style={styles.textTitulo}>{route.params.nome}</Text>
             </View>
             <View style={styles.video}>
+                {!videoReady && <ActivityIndicator style={styles.load} size="large" />}
                 <YoutubeIframe
                     videoId={route.params.video}
                     height={300}
-                    // onFullScreenChange={(isFullScreen) => {
-                    //     if (isFullScreen) {
-                    //         ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE);
-                    //     } else {
-                    //         ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT);
-                    //     }
-                    // }}
+                    onReady={carregado}
                 />
             </View>
 
@@ -45,8 +44,8 @@ export default function Receita({route}) {
                     </View>
                     <View style={styles.texto2}>
                         {
-                            words.map((item,index,array) => {
-                                return <Text style={styles.text1}>- {item}</Text>;
+                            words.map((item, index) => {
+                                return <Text key={index} style={styles.text1}>- {item}</Text>;
                             })
                         }
                     </View>

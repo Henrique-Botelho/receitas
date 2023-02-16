@@ -30,7 +30,7 @@ export const styles = StyleSheet.create({
         padding: 10,
         backgroundColor: "#E9B440",
         borderWidth: 3,
-        borderColor: "#B87333"
+        borderColor: "#B87333",
     },
     textos: {
         borderRadius: 15,
@@ -80,5 +80,8 @@ export const styles = StyleSheet.create({
     det2: {
         color: "brown",
         textAlign: "center"
+    },
+    load: {
+        marginTop: 80
     }
 });
