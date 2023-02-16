@@ -44,20 +44,17 @@ export default function Receita({route}) {
                         <Text style={styles.tit}>Ingredientes</Text>
                     </View>
                     <View style={styles.texto2}>
-                        <FlatList
-                            data={words}
-                            renderItem={({item}) => {
-                                return(
-                                    <Text style={styles.text}>- {item}</Text>
-                                )
-                            }}
-                        />
+                        {
+                            words.map((item,index,array) => {
+                                return <Text style={styles.text1}>- {item}</Text>;
+                            })
+                        }
                     </View>
                     <View style={styles.texto2}>
                         <Text style={styles.tit}>Modo de Preparo</Text>
                     </View>
                     <View style={styles.texto2}>
-                        <Text style={styles.text}>  {route.params.modo_preparo}</Text>
+                        <Text style={styles.text2}>  {route.params.modo_preparo}</Text>
                     </View>
                     <View>
                         <Text style={styles.det}>Autor: {route.params.autor}</Text>

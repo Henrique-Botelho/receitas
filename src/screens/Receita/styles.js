@@ -61,10 +61,16 @@ export const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center"
     },
-    text: {
+    text1: {
         color: "brown",
         fontSize: 15,
-        textAlign: "justify"
+        textAlign: "justify",
+        width: "80%"
+    },
+    text2: {
+        color: "brown",
+        fontSize: 15,
+        textAlign: "justify",
     },
     det: {
         color: "#B87333",
